@@ -2,12 +2,22 @@
 	<head>
 		<title>M.safaiyan's blog!</title>
 	</head>
-	<body>
-		<div>
-			<h1 style="text-align:center";>Hi there!</h1>
-			<h2 style="text-align:center";>It works!</h2>
+	<body style="background-color:powderblue";>
+		<div style="text-align:center";>
+			<h1>Hi there!</h1>
+			<h2>It works!</h2>
 		</div>
-		
+
+		<div style="text-align:center";>
+			{% for post in posts %}
+				<div>
+					<p>published: {{ post.published_date }}</p>
+					<h1><a href="">{{ post.title }}</a></h1>
+					<p>{{ post.text|linebreaks }}</p>
+				</div>
+			{% endfor %}
+		</div>
+
 		<div>
 			<p>Let's see what happens whit these tiny divs!</p>
 			<p>So i don't know what to say....!</p>
