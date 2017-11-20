@@ -1,41 +1,13 @@
-<html>
-	<head>
-		<title>M.safaiyan's blog!</title>
-	</head>
-	<body style="background-color:powderblue";>
-		<div style="text-align:center";>
-			<h1>Hi there!</h1>
-			<h2>It works!</h2>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				<p>published: {{ post.published_date }}</p>
+			</div>
+			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaks }}</p>
 		</div>
-
-		<div style="text-align:center";>
-			{% for post in posts %}
-				<div>
-					<p>published: {{ post.published_date }}</p>
-					<h1><a href="">{{ post.title }}</a></h1>
-					<p>{{ post.text|linebreaks }}</p>
-				</div>
-			{% endfor %}
-		</div>
-
-		<div>
-			<p>Let's see what happens whit these tiny divs!</p>
-			<p>So i don't know what to say....!</p>
-			<br />
-			<p>bla bla bla ....</p>
-		</div>
-
-		<div>
-			<p>Does anyone know what to put in this page?</p>
-			<p><strong><a href="http://google.com">link to Google...</a></strong></p>
-		</div>
-
-		<div>
-			<h2>Let's test a list</h2>
-			
-			<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>
-		</div>
-
-
-	</body>
-</html>
+	{% endfor %}
+{% endblock content %}
